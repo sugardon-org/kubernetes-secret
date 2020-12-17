@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: seald-secrets-cluster-side
+  namespace: helmfile-argocd-sugardon01
+spec:
+  project: default
+  source:
+    directory:
+      recurse: false
+    path: seald-secrets-cluster-side/overlays/sugardon01
+    repoURL: https://github.com/sugardon-org/kubernetes-secret
+    targetRevision: main
+  destination:
+    namespace: seald-secrets
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
