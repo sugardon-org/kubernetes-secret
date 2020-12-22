@@ -27,6 +27,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: seald-secrets-client-side
+  namespace: helmfile-argocd-sugardon01
 spec:
   project: default
   source:
