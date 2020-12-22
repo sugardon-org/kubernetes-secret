@@ -21,3 +21,26 @@ spec:
       selfHeal: false
     syncOptions:
       - CreateNamespace=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: seald-secrets-cluster-side
+spec:
+  project: default
+  source:
+    directory:
+      recurse: true
+    path: seald-secrets-client-side/sugardon01
+    repoURL: https://github.com/sugardon-org/kubernetes-secret
+    targetRevision: main
+  destination:
+    namespace: sealed-secrets
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
