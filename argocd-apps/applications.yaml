@@ -33,7 +33,7 @@ spec:
   source:
     directory:
       recurse: true
-    path: seald-secrets-client-side/sugardon01
+    path: sealed-secrets-client-side/sugardon01
     repoURL: https://github.com/sugardon-org/kubernetes-secret
     targetRevision: main
   destination:
