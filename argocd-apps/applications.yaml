@@ -26,7 +26,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: seald-secrets-cluster-side
+  name: seald-secrets-client-side
 spec:
   project: default
   source:
