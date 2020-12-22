@@ -9,7 +9,7 @@ spec:
   source:
     directory:
       recurse: false
-    path: seald-secrets-cluster-side/overlays/sugardon01
+    path: sealed-secrets-cluster-side/overlays/sugardon01
     repoURL: https://github.com/sugardon-org/kubernetes-secret
     targetRevision: main
   destination:
