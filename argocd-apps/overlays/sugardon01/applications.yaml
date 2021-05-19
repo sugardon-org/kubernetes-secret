@@ -3,6 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sealed-secrets-cluster-side
+  namespace: helmfile-argocd-sugardon01
 spec:
   project: default
   source:
@@ -26,6 +27,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sealed-secrets-client-side
+  namespace: helmfile-argocd-sugardon01
 spec:
   project: default
   source:
