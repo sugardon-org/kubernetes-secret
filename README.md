@@ -7,7 +7,7 @@
 $ DOCKER_CONFIG=$(cat <<EOS
 {
     "auths": {
-        "https://index.docker.io/v1/" : {         
+        "https://index.docker.io/v1/" : {
             "auth" : "$(echo -n user:password | base64)"
         }
     }
