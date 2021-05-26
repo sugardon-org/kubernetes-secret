@@ -9,6 +9,8 @@ pub-cert.pem:
 	  > pub-cert.pem
 
 # encrypt $ENCRYPT file
+# example:
+# $ make encrypt TARGET_NAME=./sealed-secrets-client-side/sugardon01/tekton-cicd/sugardon-dockerhub
 encrypt:
 	kubeseal -o=yaml --cert=./pub-cert.pem < ${TARGET_NAME}.yaml > ${TARGET_NAME}-sealedsecret.yaml
 
@@ -18,5 +20,7 @@ encrypt:
 backup:
 	kubectl get secret -n ${CONTROLLER_NAMESPACE} -l sealedsecrets.bitnami.com/sealed-secrets-key -o yaml > master.key
 
+# example:
+# make recovery TARGET_NAME=./sealed-secrets-client-side/sugardon01/tekton-cicd/sugardon-dockerhub
 recovery:
 	kubeseal --recovery-unseal --recovery-private-key master.key -o yaml < ${TARGET_NAME}-sealedsecret.yaml > ${TARGET_NAME}-recovery.yaml
